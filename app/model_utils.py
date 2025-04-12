@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load artifacts (model, label encoders, and scaler)
-with open('app/artifacts/best_model.pkl', 'rb') as f:
+with open('app/artifacts/Insomnia_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 with open('app/artifacts/label_encoders.pkl', 'rb') as f:
