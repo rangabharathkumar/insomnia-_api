@@ -3,11 +3,11 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load artifacts (model, label encoders, and scaler)
-with open('app/artifacts/best_model.pkl', 'rb') as f:
+with open('app/artifacts/sleep_disorder_predictor_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open('app/artifacts/label_encoders.pkl', 'rb') as f:
-    label_encoders = pickle.load(f)
+with open('app/artifacts/label_encoder.pkl', 'rb') as f:
+    label_encoder = pickle.load(f)
 
 with open('app/artifacts/scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
@@ -20,7 +20,7 @@ def preprocess_data(input_data):
     
     # Encode categorical variables
     for col in ['Gender', 'Occupation', 'BMI Category', 'Blood Pressure']:
-        le = label_encoders.get(col)
+        le = label_encoder.get(col)
         if le:
             processed_data[col] = le.transform([processed_data[col]])[0]
 
